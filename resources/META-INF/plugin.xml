@@ -8,11 +8,11 @@
      <h1>Convert YAML and Properties File</h1>
      <p>
         <b>
-            <a href="https://github.com/chencn/ConvertYamlAndProperties">Github</a>
+            <a href="https://github.com/chencn/ConvertYamlAndProperties">Github</a>  |  <a href="https://gitee.com/xqchen/ConvertYamlAndProperties">Gitee</a>
         </b>
     </p>
      <p><b>You can quickly convert <em>Properties</em> files to <em>YAML</em> files, or <em>YAML</em> files to <em>Properties</em> files</b></p>
-      <div><img src="https://i.loli.net/2020/02/16/BV9t6W41kSwIsFi.gif" alt="Convert YAML and Properties File" ></div>
+      <div><img src="https://gitee.com/xqchen/ConvertYamlAndProperties/raw/master/images/show.gif" alt="Convert YAML and Properties File" ></div>
     ]]></description>
 
     <change-notes><![CDATA[
