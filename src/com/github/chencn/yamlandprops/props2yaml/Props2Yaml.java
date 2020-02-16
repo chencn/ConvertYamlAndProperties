@@ -8,6 +8,9 @@ import java.lang.invoke.MethodHandles;
 import java.nio.file.Path;
 import java.util.Properties;
 
+/**
+ * @author xqchen
+ */
 public class Props2Yaml {
 
     private final static Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -45,7 +48,7 @@ public class Props2Yaml {
     public String convert(boolean useNumericKeysAsArrayIndexes) {
         PropertyTree tree = new TreeBuilder(properties, useNumericKeysAsArrayIndexes).build();
         tree = new ArrayProcessor(tree).apply();
-        return tree.toYAML();
+        return tree.toYaml();
     }
 
     public String convert() {

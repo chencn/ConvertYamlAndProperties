@@ -2,6 +2,9 @@ package com.github.chencn.yamlandprops.props2yaml;
 
 import java.util.List;
 
+/**
+ * @author xqchen
+ */
 class TreeBranchBuilder {
 
     private final List<String> key;

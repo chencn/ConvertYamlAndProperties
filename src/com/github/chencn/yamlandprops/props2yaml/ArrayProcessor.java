@@ -7,9 +7,12 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author xqchen
+ */
 class ArrayProcessor {
 
-    private final static Pattern pattern = Pattern.compile("(.*)\\[(\\d+)\\]");
+    private final static Pattern PATTERN = Pattern.compile("(.*)\\[(\\d+)\\]");
 
     private final PropertyTree tree;
 
@@ -23,9 +26,9 @@ class ArrayProcessor {
 
     private PropertyTree process(final PropertyTree root) {
         final PropertyTree result = new PropertyTree();
-        final Map<String, List<Object>> entriesFromList = new HashMap<>();
+        final Map<String, List<Object>> entriesFromList = new HashMap<>(16);
         root.entrySet().stream().forEach((entry) -> {
-            Matcher matcher = pattern.matcher(entry.getKey());
+            Matcher matcher = PATTERN.matcher(entry.getKey());
             if (matcher.find()) {
                 String label = matcher.group(1);
                 int index = Integer.parseInt(matcher.group(2));

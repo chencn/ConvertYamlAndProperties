@@ -1,5 +1,8 @@
 package com.github.chencn.yamlandprops.consts;
 
+/**
+ * @author xqchen
+ */
 public class Constant {
 
     public final static String YAML = "YAML";

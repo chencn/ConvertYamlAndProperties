@@ -17,6 +17,9 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
+/**
+ * @author xqchen
+ */
 public class ConvertAction extends AnAction {
 
     @Override
@@ -24,7 +27,7 @@ public class ConvertAction extends AnAction {
         //获取文件类型
         final String fileType = CommonUtils.getFileType(event, false);
         //根据类型动态控制Action的隐藏显示
-        event.getPresentation().setEnabledAndVisible(fileType != null && (Constant.YAML.equals(fileType) || Constant.PROPERTIES.equals(fileType)));
+        event.getPresentation().setEnabledAndVisible(Constant.YAML.equals(fileType) || Constant.PROPERTIES.equals(fileType));
     }
 
     @Override
@@ -32,7 +35,7 @@ public class ConvertAction extends AnAction {
         //获取文件类型
         final String fileType = CommonUtils.getFileType(event, true);
         final PsiFile selectedFile = CommonUtils.getSelectedFile(event, true);
-        if (null == fileType || null == selectedFile) {
+        if (null == selectedFile) {
             return;
         }
 
@@ -44,14 +47,14 @@ public class ConvertAction extends AnAction {
                 //YAML文件处理
                 if (Constant.YAML.equals(fileType)) {
                     String yamlContent = Yaml2Props.fromContent(content).convert();
-                    file.rename((Object) this, file.getNameWithoutExtension() + Constant.PROPERTIES_SUFFIX);
+                    file.rename(this, file.getNameWithoutExtension() + Constant.PROPERTIES_SUFFIX);
                     file.setBinaryContent(yamlContent.getBytes());
                     Notifications.Bus.notify(new Notification(Constant.GROUP_DISPLAY_ID, MsgConsts.SUCCESS,
                             MsgConsts.YAML2PROPS, NotificationType.INFORMATION));
                 }//PROPERTIES文件处理
                 else if (Constant.PROPERTIES.equals(fileType)) {
                     String propsContent = Props2Yaml.fromContent(content).convert();
-                    file.rename((Object) this, file.getNameWithoutExtension() + Constant.YAML_SUFFIX);
+                    file.rename(this, file.getNameWithoutExtension() + Constant.YAML_SUFFIX);
                     file.setBinaryContent(propsContent.getBytes());
                     Notifications.Bus.notify(new Notification(Constant.GROUP_DISPLAY_ID, MsgConsts.SUCCESS,
                             MsgConsts.PROPS2YAML, NotificationType.INFORMATION));
@@ -64,7 +67,6 @@ public class ConvertAction extends AnAction {
                 Notifications.Bus.notify(new Notification(Constant.GROUP_DISPLAY_ID,
                         MsgConsts.CANNOT_RENAME_FILE, e.getMessage(), NotificationType.ERROR));
             }
-            return;
         });
     }
 

@@ -1,5 +1,8 @@
 package com.github.chencn.yamlandprops.consts;
 
+/**
+ * @author xqchen
+ */
 public class MsgConsts {
     public final static String NO_FILE_SELECTED = "No file selected";
     public final static String SELECT_FILE_FIRST = "Please select file first";

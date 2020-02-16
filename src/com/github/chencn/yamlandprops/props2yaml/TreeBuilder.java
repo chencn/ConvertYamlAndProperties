@@ -6,10 +6,13 @@ import java.util.regex.Pattern;
 
 import static java.util.stream.Collectors.toMap;
 
+/**
+ * @author xqchen
+ */
 class TreeBuilder {
 
     private final Properties properties;
-    private final static Pattern pattern = Pattern.compile("[0-9]+");
+    private final static Pattern PATTERN = Pattern.compile("[0-9]+");
     private final boolean useNumericKeysAsArrayIndexes;
 
     public TreeBuilder(Properties properties, boolean useNumericKeysAsArrayIndexes) {
@@ -42,7 +45,7 @@ class TreeBuilder {
     private List<String> applyArrayNotation(List<String> strings) {
         List<String> result = new ArrayList<>();
         for (String element : strings) {
-            Matcher matcher = pattern.matcher(element);
+            Matcher matcher = PATTERN.matcher(element);
             if (matcher.matches()) {
                 int index = result.size() - 1;
                 result.set(index, result.get(index) + String.format("[%s]", element));
