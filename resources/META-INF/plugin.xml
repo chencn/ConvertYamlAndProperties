@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.github.chencn.yamlandprops</id>
     <name>Convert YAML and Properties File</name>
-    <version>1.0</version>
+    <version>1.0.1</version>
     <vendor email="chenxuq@live.com" url="https://github.com/chencn/ConvertYamlAndProperties">xqchen</vendor>
 
     <description><![CDATA[
@@ -12,7 +12,7 @@
         </b>
     </p>
      <p><b>You can quickly convert <em>Properties</em> files to <em>YAML</em> files, or <em>YAML</em> files to <em>Properties</em> files</b></p>
-      <div><img src="https://gitee.com/xqchen/ConvertYamlAndProperties/raw/master/images/show.gif" alt="Convert YAML and Properties File" ></div>
+      <div><img src="https://plugins.jetbrains.com/files/13804/screenshot_21167.png" alt="Convert YAML and Properties File" ></div>
     ]]></description>
 
     <change-notes><![CDATA[
