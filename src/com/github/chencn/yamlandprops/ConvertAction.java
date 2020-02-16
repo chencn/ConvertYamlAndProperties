@@ -20,6 +20,14 @@ import java.io.IOException;
 public class ConvertAction extends AnAction {
 
     @Override
+    public void update(@NotNull AnActionEvent event) {
+        //获取文件类型
+        final String fileType = CommonUtils.getFileType(event, false);
+        //根据类型动态控制Action的隐藏显示
+        event.getPresentation().setEnabledAndVisible(fileType != null && (Constant.YAML.equals(fileType) || Constant.PROPERTIES.equals(fileType)));
+    }
+
+    @Override
     public void actionPerformed(@NotNull final AnActionEvent event) {
         //获取文件类型
         final String fileType = CommonUtils.getFileType(event, true);
@@ -58,8 +66,6 @@ public class ConvertAction extends AnAction {
             }
             return;
         });
-
-
     }
 
 }

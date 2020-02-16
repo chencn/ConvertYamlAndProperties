@@ -5,3 +5,6 @@
 [Github](https://github.com/chencn/ConvertYamlAndProperties)  |  [Gitee](https://gitee.com/xqchen/ConvertYamlAndProperties)  |  [JetBrains Plugin Download](https://plugins.jetbrains.com/plugin/13804-convert-yaml-and-properties-file)
 
 ![show.gif](images/show.gif)
+
+## Change Log
+>1.0.2  Show menu only with files of specified type.
