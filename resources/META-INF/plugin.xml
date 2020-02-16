@@ -1,0 +1,47 @@
+<idea-plugin>
+    <id>com.github.chencn.yamlandprops</id>
+    <name>Convert YAML and Properties File</name>
+    <version>1.0</version>
+    <vendor email="chenxuq@live.com" url="https://github.com/chencn/ConvertYamlAndProperties">xqchen</vendor>
+
+    <description><![CDATA[
+     <h1>Convert YAML and Properties File</h1>
+     <p>
+        <b>
+            <a href="https://github.com/chencn/ConvertYamlAndProperties">Github</a>
+        </b>
+    </p>
+     <p><b>You can quickly convert <em>Properties</em> files to <em>YAML</em> files, or <em>YAML</em> files to <em>Properties</em> files</b></p>
+      <div><img src="https://i.loli.net/2020/02/16/BV9t6W41kSwIsFi.gif" alt="Convert YAML and Properties File" ></div>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <p><b>· You can quickly convert <em>Properties</em> files to <em>YAML</em> files, or <em>YAML</em> files to <em>Properties</em> files</b></p>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="com.github.chencn.yamlandprops" class="com.github.chencn.yamlandprops.ConvertAction"
+                text="Convert YAML and Properties File"
+                description="You can quickly convert Properties files to YAML files, or YAML files to Properties files">
+            <!--在ide左边编辑栏菜单文件右击中显示-->
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <!--在ide右边项目打开的文件中右击显示-->
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+
+        </action>
+    </actions>
+
+</idea-plugin>
