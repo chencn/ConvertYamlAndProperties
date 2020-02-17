@@ -9,7 +9,6 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
 import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 /**
  * @author xqchen
@@ -22,7 +21,7 @@ public class CommonUtils {
      * @param showNotifications
      * @return PsiFile
      */
-    @Nullable
+    @NotNull
     public static PsiFile getSelectedFile(AnActionEvent event, boolean showNotifications) {
         //获取当前打开的文件
         PsiFile selectedFile = event.getData(LangDataKeys.PSI_FILE);
@@ -47,8 +46,6 @@ public class CommonUtils {
     public static String getFileType(AnActionEvent event, boolean showNotifications) {
         //获取打开的文件
         PsiFile selectedFile = getSelectedFile(event, showNotifications);
-        assert selectedFile != null;
         return selectedFile.getFileType().getName();
-
     }
 }

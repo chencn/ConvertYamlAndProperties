@@ -41,7 +41,7 @@ public class Yaml2Props {
                 if (map.get(mapKey) instanceof Map) {
                     sb.append(toString(String.format("%s.%s", key, mapKey), map.get(mapKey)));
                 } else {
-                    sb.append(String.format("%s.%s=%s%n", key, mapKey, map.get(mapKey).toString()));
+                    sb.append(String.format("%s.%s=%s%n", key, mapKey, (null == map.get(mapKey)) ? null : map.get(mapKey).toString()));
                 }
             }
         } else {

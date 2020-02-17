@@ -35,20 +35,18 @@ public class ConvertAction extends AnAction {
         //获取文件类型
         final String fileType = CommonUtils.getFileType(event, true);
         final PsiFile selectedFile = CommonUtils.getSelectedFile(event, true);
-        if (null == selectedFile) {
-            return;
-        }
-
         final VirtualFile file = selectedFile.getVirtualFile();
 
         ApplicationManager.getApplication().runWriteAction(() -> {
             try {
-                String content = new String(file.contentsToByteArray());
+                @NotNull String content = new String(file.contentsToByteArray());
                 //YAML文件处理
                 if (Constant.YAML.equals(fileType)) {
-                    String yamlContent = Yaml2Props.fromContent(content).convert();
+                    @NotNull String yamlContent = Yaml2Props.fromContent(content).convert();
+                    file.setCharset(file.getCharset());
                     file.rename(this, file.getNameWithoutExtension() + Constant.PROPERTIES_SUFFIX);
                     file.setBinaryContent(yamlContent.getBytes());
+
                     Notifications.Bus.notify(new Notification(Constant.GROUP_DISPLAY_ID, MsgConsts.SUCCESS,
                             MsgConsts.YAML2PROPS, NotificationType.INFORMATION));
                 }//PROPERTIES文件处理
