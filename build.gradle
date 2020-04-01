@@ -36,7 +36,7 @@ intellij {
     //pluginName
     pluginName 'ConvertYamlAndProperties'
     sandboxDirectory = "${rootProject.rootDir}/idea-sandbox"
-    version '2017.3+'
+    version '2017.3'
     type 'IC'
 }
 patchPluginXml {
