@@ -19,7 +19,7 @@ target/
 *.iml
 *.ipr
 /out
-/idea-sandbox
+/idea-sandbox/
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
@@ -32,4 +32,3 @@ target/
 ### VS Code ###
 .vscode/
 /gradle/
-/idea-sandbox/
