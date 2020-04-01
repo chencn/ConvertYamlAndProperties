@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        jcenter()
+        google()
+        maven { url 'http://dl.bintray.com/jetbrains/intellij-plugin-service' }
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.3.5'
+}
+//plugin config
+apply plugin: 'idea'
+apply plugin: 'org.jetbrains.intellij'
+
+group 'com.github.chencn.yamlandprops'
+version '1.0.4'
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    jcenter()
+    google()
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+// See https://github.com/JetBrains/gradle-intellij-plugin/
+intellij {
+    //pluginName
+    pluginName 'ConvertYamlAndProperties'
+    sandboxDirectory = "${rootProject.rootDir}/idea-sandbox"
+    version '2017.3+'
+    type 'IC'
+}
+patchPluginXml {
+    changeNotes """
+      <p>1.0.4: <b>fix bugs.</b></p>
+      <p>1.0.3: <b>fix YAML file null value exception.</b></p>
+      <p>1.0.2: <b>Show menu only with files of specified type.</b></p>
+      <p>1.0.0: <b>You can quickly convert <em>Properties</em> files to <em>YAML</em> files, or <em>YAML</em> files to <em>Properties</em> files</b></p>"""
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

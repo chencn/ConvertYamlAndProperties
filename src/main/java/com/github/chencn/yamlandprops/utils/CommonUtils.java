@@ -15,13 +15,12 @@ import org.jetbrains.annotations.NotNull;
  */
 public class CommonUtils {
     /**
-     * 获取文件
+     * get selected file
      *
      * @param event
      * @param showNotifications
      * @return PsiFile
      */
-    @NotNull
     public static PsiFile getSelectedFile(AnActionEvent event, boolean showNotifications) {
         //获取当前打开的文件
         PsiFile selectedFile = event.getData(LangDataKeys.PSI_FILE);
@@ -37,15 +36,19 @@ public class CommonUtils {
     }
 
     /**
-     * 获取打开的文件类型
+     * get file type
      *
      * @param event
      * @param showNotifications
      */
-    @NotNull
     public static String getFileType(AnActionEvent event, boolean showNotifications) {
         //获取打开的文件
         PsiFile selectedFile = getSelectedFile(event, showNotifications);
-        return selectedFile.getFileType().getName();
+        if (null == selectedFile) {
+            return null;
+        } else {
+            return selectedFile.getFileType().getName();
+        }
+
     }
 }

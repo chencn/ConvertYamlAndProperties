@@ -7,4 +7,6 @@
 ![show.gif](images/show.gif)
 
 ## Change Log
+>1.0.4  fix bugs.
+>1.0.3  fix YAML file null value exception.
 >1.0.2  Show menu only with files of specified type.

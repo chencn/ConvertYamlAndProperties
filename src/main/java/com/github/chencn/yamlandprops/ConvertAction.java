@@ -10,7 +10,9 @@ import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
+import com.intellij.openapi.actionSystem.Presentation;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.util.text.StringUtil;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiFile;
 import org.jetbrains.annotations.NotNull;
@@ -24,17 +26,27 @@ public class ConvertAction extends AnAction {
 
     @Override
     public void update(@NotNull AnActionEvent event) {
-        //获取文件类型
+        super.update(event);
+        Presentation presentation = event.getPresentation();
+        // get file type
         final String fileType = CommonUtils.getFileType(event, false);
         //根据类型动态控制Action的隐藏显示
-        event.getPresentation().setEnabledAndVisible(Constant.YAML.equals(fileType) || Constant.PROPERTIES.equals(fileType));
+        if (!StringUtil.isEmpty(fileType) && presentation.isEnabled()) {
+            event.getPresentation().setEnabledAndVisible(Constant.YAML.equals(fileType) || Constant.PROPERTIES.equals(fileType));
+        } else {
+            event.getPresentation().setEnabledAndVisible(false);
+        }
+
     }
 
     @Override
     public void actionPerformed(@NotNull final AnActionEvent event) {
-        //获取文件类型
+        // get file type
         final String fileType = CommonUtils.getFileType(event, true);
         final PsiFile selectedFile = CommonUtils.getSelectedFile(event, true);
+        if (StringUtil.isEmpty(fileType) || null == selectedFile) {
+            return;
+        }
         final VirtualFile file = selectedFile.getVirtualFile();
 
         ApplicationManager.getApplication().runWriteAction(() -> {
