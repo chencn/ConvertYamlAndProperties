@@ -36,6 +36,8 @@ intellij {
     //pluginName
     pluginName 'ConvertYamlAndProperties'
     sandboxDirectory = "${rootProject.rootDir}/idea-sandbox"
+    // Disables updating since-build attribute in plugin.xml
+    intellij.updateSinceUntilBuild false
     version '2017.3'
     type 'IC'
 }

@@ -15,7 +15,8 @@
       <div><img src="https://plugins.jetbrains.com/files/13804/screenshot_21167.png" alt="Convert YAML and Properties File" ></div>
     ]]></description>
 
-    <idea-version since-build="173.0"/>
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="173" until-build="*.*"/>
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>
