@@ -32,3 +32,4 @@ target/
 ### VS Code ###
 .vscode/
 /gradle/
+/idea-sandbox/
