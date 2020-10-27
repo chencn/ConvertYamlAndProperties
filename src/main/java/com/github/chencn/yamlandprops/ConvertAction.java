@@ -48,13 +48,22 @@ public class ConvertAction extends AnAction {
             return;
         }
         final VirtualFile file = selectedFile.getVirtualFile();
-
+        if (null == file) {
+            Notifications.Bus.notify(new Notification(Constant.GROUP_DISPLAY_ID, MsgConsts.NO_FILE_SELECTED,
+                    MsgConsts.SELECT_FILE_FIRST, NotificationType.ERROR));
+            return;
+        }
         ApplicationManager.getApplication().runWriteAction(() -> {
             try {
-                @NotNull String content = new String(file.contentsToByteArray());
+                String content = new String(file.contentsToByteArray());
+                if (StringUtil.isEmpty(content)) {
+                    Notifications.Bus.notify(new Notification(Constant.GROUP_DISPLAY_ID, MsgConsts.FILE_NOT_EMPTY,
+                            MsgConsts.SELECT_FILE_FIRST, NotificationType.ERROR));
+                    return;
+                }
                 //YAML文件处理
                 if (Constant.YAML.equals(fileType)) {
-                    @NotNull String yamlContent = Yaml2Props.fromContent(content).convert();
+                    String yamlContent = Yaml2Props.fromContent(content).convert();
                     file.setCharset(file.getCharset());
                     file.rename(this, file.getNameWithoutExtension() + Constant.PROPERTIES_SUFFIX);
                     file.setBinaryContent(yamlContent.getBytes());

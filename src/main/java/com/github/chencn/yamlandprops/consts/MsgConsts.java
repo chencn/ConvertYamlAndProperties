@@ -12,4 +12,5 @@ public class MsgConsts {
     public final static String SELECT_PROPS_OR_YAML_FIRST = "Please select YAML or Properties file first";
     public final static String CANNOT_RENAME_FILE = "Cannot rename file";
     public final static String INCORRECT_FILE_SELECTED = "Incorrect file selected";
+    public final static String FILE_NOT_EMPTY = "File content cannot be empty";
 }

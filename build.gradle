@@ -16,7 +16,7 @@ apply plugin: 'idea'
 apply plugin: 'org.jetbrains.intellij'
 
 group 'com.github.chencn.yamlandprops'
-version '1.0.4'
+version '1.0.5'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -43,6 +43,7 @@ intellij {
 }
 patchPluginXml {
     changeNotes """
+      <p>1.0.5: <b>fix bugs.</b></p>
       <p>1.0.4: <b>fix bugs.</b></p>
       <p>1.0.3: <b>fix YAML file null value exception.</b></p>
       <p>1.0.2: <b>Show menu only with files of specified type.</b></p>

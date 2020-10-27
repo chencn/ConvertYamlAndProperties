@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.github.chencn.yamlandprops</id>
     <name>Convert YAML and Properties File</name>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <vendor email="chenxuq@live.com" url="https://github.com/chencn/ConvertYamlAndProperties">xqchen</vendor>
 
     <description><![CDATA[
